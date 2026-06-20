@@ -3,11 +3,16 @@ AMBROSIO — Interface Web (Streamlit)
 Execute com: streamlit run app.py
 """
 
+import sys
+import os
+from pathlib import Path
+
+# Garante que o diretório raiz do projeto está no path
+sys.path.insert(0, str(Path(__file__).parent))
+
 import streamlit as st
 import pandas as pd
 import tempfile
-import os
-from pathlib import Path
 from src.reader import extrair_lote_pgtos, extrair_itau
 from src.comparator import comparar_pagamentos
 from src.reporter import gerar_relatorio
